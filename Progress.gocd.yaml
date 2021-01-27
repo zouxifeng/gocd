@@ -1,6 +1,6 @@
 format_version: 10
 pipelines:
-  Progress1:
+  Progress:
     group: defaultGroup
     label_template: ${COUNT}
     lock_behavior: none
@@ -12,7 +12,7 @@ pipelines:
         auto_update: false
         branch: master
     stages:
-    - Stage:
+    - Testing:
         fetch_materials: true
         keep_artifacts: false
         clean_workspace: false
