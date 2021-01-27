@@ -32,3 +32,19 @@ pipelines:
                 - Packaging
                 command: echo
                 run_if: passed
+    - DeploySandbox:
+        fetch_materials: true
+        keep_artifacts: false
+        clean_workspace: false
+        approval:
+          type: success
+          allow_only_on_success: false
+        jobs:
+          BuildAritfact:
+            timeout: 0
+            tasks:
+            - exec:
+                arguments:
+                - Building Artifact
+                command: echo
+                run_if: passed
