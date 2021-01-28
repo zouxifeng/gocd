@@ -27,7 +27,7 @@ pipelines:
           UnitTest:
             timeout: 0
             tasks:
-            - init:
+            - exec:
                 arguments:
                 - install
                 - tox
