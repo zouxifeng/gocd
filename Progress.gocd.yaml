@@ -26,6 +26,8 @@ pipelines:
         jobs:
           UnitTest:
             timeout: 0
+            resources:
+              - python
             tasks:
             - exec:
                 arguments:
