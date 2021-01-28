@@ -11,7 +11,7 @@ pipelines:
     display_order: -1
     materials:
       git-c30ee0e:
-        git: https://github.com/zouxifeng/gocd.git
+        git: git@172.16.3.45:gocd-test.git
         shallow_clone: false
         auto_update: true
         branch: master
@@ -24,13 +24,17 @@ pipelines:
           type: success
           allow_only_on_success: false
         jobs:
-          Packaging:
+          UnitTest:
             timeout: 0
             tasks:
-            - exec:
+            - init:
                 arguments:
-                - Packaging
-                command: echo
+                - install
+                - tox
+                command: pip3
+                  run_if: passed
+            - exec:
+                command: tox
                 run_if: passed
     - DeploySandbox:
         fetch_materials: true
